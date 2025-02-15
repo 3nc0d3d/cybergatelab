@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://3nc0d3d.github.io/cybergatelab/sitemap.xml
