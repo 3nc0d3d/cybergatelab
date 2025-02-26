@@ -3,12 +3,47 @@
     <title>Cybergate Lab</title>
     <link href="https://3nc0d3d.github.io/cybergatelab/feed.xml" rel="self" />
     <link href="https://3nc0d3d.github.io/cybergatelab" />
-    <updated>2025-02-15T22:31:12+01:00</updated>
+    <updated>2025-02-26T23:53:19+01:00</updated>
     <author>
         <name>Alessandro</name>
     </author>
     <id>https://3nc0d3d.github.io/cybergatelab</id>
 
+    <entry>
+        <title>Proteggi le tue Email con SPF, DKIM e DMARC (anche se non gestisci il tuo server di posta!)</title>
+        <author>
+            <name>Alessandro</name>
+        </author>
+        <link href="https://3nc0d3d.github.io/cybergatelab/proteggi-le-tue-email-con-spf-dkim-e-dmarc-anche-se-non-gestisci-il-tuo-server-di-posta.html"/>
+        <id>https://3nc0d3d.github.io/cybergatelab/proteggi-le-tue-email-con-spf-dkim-e-dmarc-anche-se-non-gestisci-il-tuo-server-di-posta.html</id>
+            <category term="spam "/>
+            <category term="email"/>
+            <category term="SPF"/>
+            <category term="DMARC"/>
+            <category term="DKIM"/>
+
+        <updated>2025-02-26T23:53:13+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Le email sono uno strumento fondamentale per comunicare, ma quando finiscono nello spam o vengono usate in modo fraudolento, possono creare davvero un casino. Personalmente, mi è capitato più volte che delle email importanti finissero nella cartella dello spam – un problema fastidioso che ha&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Le email sono uno strumento fondamentale per comunicare, ma quando finiscono nello spam o vengono usate in modo fraudolento, possono creare davvero un casino. Personalmente, mi è capitato più volte che delle email importanti finissero nella cartella dello spam – un problema fastidioso che ha rallentato le mie comunicazioni e fatto perdere contatti preziosi. Per fortuna, ci sono soluzioni che possono aiutare a proteggere le tue email e il tuo dominio: <strong>SPF</strong>, <strong>DKIM</strong> e <strong>DMARC</strong>.</p><h2 id="spf-sender-policy-framework">SPF: Sender Policy Framework</h2>
+<p><strong>SPF</strong> è un sistema che ti permette di specificare, tramite un record DNS, quali server (cioè quali indirizzi IP) sono autorizzati a inviare email per il tuo dominio. In pratica, quando una email arriva a destinazione, il server ricevente controlla il record SPF per vedere se il mittente è legittimo. Se il tuo IP è autorizzato, l’email viene accettata; altrimenti, rischia di essere rifiutata o etichettata come sospetta.</p><p><strong>Perché è utile anche per chi non gestisce un server proprio?</strong><br>Anche se usi servizi di terze parti (come Gmail, Office 365 o altri provider di posta), puoi e dovresti configurare SPF per il tuo dominio. Questo perché, indipendentemente da chi gestisce il server, il record SPF protegge il nome del tuo dominio, impedendo ad altri di usarlo per inviare spam o phishing.</p><h2 id="dkim-domainkeys-identified-mail">DKIM: DomainKeys Identified Mail</h2>
+<p><strong>DKIM</strong> aggiunge un livello di sicurezza firmando digitalmente le email. In pratica, il tuo server (o il servizio che usi) usa una chiave privata per “firmare” le email, mentre una chiave pubblica, pubblicata nel DNS, permette ai destinatari di verificare che il contenuto non sia stato alterato.</p><p><strong>Anche se non gestisci il tuo server, DKIM è fondamentale.</strong><br>Molti provider di posta includono DKIM nelle loro configurazioni, ma se hai il controllo sul DNS del tuo dominio, puoi sempre assicurarti che il record DKIM sia presente. Così, chi riceve le tue email può essere certo che non sono state manomesse in transito.</p><h2 id="dmarc-domain-based-message-authentication-reporting-and-conformance">DMARC: Domain-based Message Authentication, Reporting and Conformance</h2>
+<p><strong>DMARC</strong> è il “cervello” che mette insieme SPF e DKIM. Con DMARC, puoi dire ai server di posta cosa fare quando un’email non supera i controlli SPF o DKIM: metterla in quarantena o rifiutarla del tutto. Inoltre, DMARC ti manda dei report dettagliati, così puoi monitorare chi sta cercando di inviare email a nome del tuo dominio.</p><p><strong>Non è solo per chi gestisce il proprio server!</strong><br>Anche se usi piattaforme esterne per inviare email, configurare DMARC nel DNS del tuo dominio aiuta a proteggere la tua reputazione online e a mantenere pulita la tua casella di posta. È un modo per avere un controllo in più sulle email che viaggiano con il tuo marchio.</p><h2 id="perché-usare-tutti-e-tre-insieme">Perché usare tutti e tre insieme?</h2>
+<p>Questi strumenti funzionano meglio in combinazione:</p><ul>
+<li><strong>SPF</strong> controlla chi può inviare email per il tuo dominio.</li>
+<li><strong>DKIM</strong> garantisce che il contenuto delle email non venga alterato.</li>
+<li><strong>DMARC</strong> coordina le regole e ti fornisce feedback utili per prevenire abusi.</li>
+</ul>
+<p>Il risultato? Un sistema robusto che protegge il tuo dominio, riduce il rischio di phishing e migliora la consegna delle email, evitando che finiscano nello spam (una situazione che, fidatevi, può diventare davvero frustrante!).</p><h2 id="conclusione">Conclusione</h2>
+<p>Non serve essere un grande amministratore di sistemi per beneficiare di SPF, DKIM e DMARC. Anche se usi servizi di posta gestiti da terzi, configurare questi strumenti a livello di DNS ti permette di proteggere il tuo dominio, migliorare la deliverability delle email e difenderti da tentativi di spoofing. Dalla mia esperienza, evitare che le email importanti finiscano nello spam non solo semplifica la vita quotidiana, ma fa anche sentire più sicuri e in controllo della propria comunicazione.</p><p>Metti in pratica questi consigli e dì addio al problema fastidioso dello spam!</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Wfuzz: L’arma Segreta per il Fuzzing di Applicazioni Web</title>
         <author>
