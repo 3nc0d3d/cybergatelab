@@ -3,12 +3,24 @@
     <title>Cybergate Lab</title>
     <link href="https://3nc0d3d.github.io/cybergatelab/feed.xml" rel="self" />
     <link href="https://3nc0d3d.github.io/cybergatelab" />
-    <updated>2025-02-27T19:57:11+01:00</updated>
+    <updated>2025-02-28T17:13:43+01:00</updated>
     <author>
         <name>Alessandro</name>
     </author>
     <id>https://3nc0d3d.github.io/cybergatelab</id>
 
+    <entry>
+        <title>Test</title>
+        <author>
+            <name>Alessandro</name>
+        </author>
+        <link href="https://3nc0d3d.github.io/cybergatelab/test.html"/>
+        <id>https://3nc0d3d.github.io/cybergatelab/test.html</id>
+
+        <updated>2025-02-28T17:13:43+01:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
     <entry>
         <title>Proteggi le tue Email con SPF, DKIM e DMARC</title>
         <author>
